@@ -38,6 +38,29 @@ movechk(State, [rook1, X, Y |[]], Player):-
     Ytmp is CurrY - 1,
     notblocked(State, CurrX, Ytmp, X, Y , frd).
 
+movechk(State, [rook1, X, Y |[]], Player):-
+    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+    K is X - CurrX,
+    K is Y - CurrY,
+    K > 0,
+    bounded(X, Y),
+    Xtmp is X + 1,
+    Ytmp is Y + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, fru).
+
+
+movechk(State, [rook1, X, Y |[]], Player):-
+    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+    K is X - CurrX,
+    K is Y - CurrY,
+    K < 0,
+    bounded(X, Y),
+    Xtmp is X - 1,
+    Ytmp is Y - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, fld).
+
+
+
 /*TODO need to complete rook movechk by adding fru and fld
 * Movechk has not been tested.*/
 
@@ -133,7 +156,7 @@ isfree([White,Black|[]], X, Y):-
 
 freeAux([],_,_).
 
-freeAux([[_,Xloc, Yloc]|_], X, Y):-
+freeAux([[_,Xloc, Yloc|[]]|_], X, Y):-
     Xloc is X,
     Yloc is Y,
     !,
