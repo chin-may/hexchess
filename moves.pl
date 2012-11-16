@@ -132,25 +132,13 @@ notblocked(State, X1, Y1, X2, Y2, vru):-
     notblocked(State, Xn, Yn, X2, Y2, vru).
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*For checking if the location X, Y is unoccupied*/
 
-isfree([White,Black|[]], X, Y):-
+isfree([White, Black], X, Y):-
+    not(member([_, X, Y] ,White)),
+    not(member([_, X, Y] ,Black)).
+
+/*isfree([White,Black|[]], X, Y):-
     freeAux(White, X, Y),
     freeAux(Black, X, Y).
 
@@ -164,6 +152,7 @@ freeAux([[_,Xloc, Yloc|[]]|_], X, Y):-
 
 freeAux([_|PosLst], X, Y):-
     freeAux(PosLst, X, Y).
+*/
 
 /*Checks if a location is inside the board*/
 
