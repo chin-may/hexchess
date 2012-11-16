@@ -61,9 +61,6 @@ movechk(State, [rook1, X, Y |[]], Player):-
 
 
 
-/*TODO need to complete rook movechk by adding fru and fld
-* Movechk has not been tested.*/
-
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
 
