@@ -1,63 +1,62 @@
 /*
-movechk(State, [Piece,X,Y|[]], Player):-
+movechk(State, [Piece,X,Y], Player):-
     bounded,
     possible,
     notblocked.
 */
 
 
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player), /*To find the current location of the piece*/
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player), /*To find the current location of the piece*/
+    bounded(X,Y),  
     Y is CurrY,
     X > CurrX,
-    bounded(X,Y),                               /*This is here because if passed a variable, bounded cannot be called as X and Y not instantiated.*/
-    Xtmp is CurrX + 1,
+    Xtmp is CurrX + 1, 
     notblocked(State, Xtmp, CurrY, X, Y, fr ).
 
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player),
+    bounded(X,Y),
     Y is CurrY,
     X < CurrX,
-    bounded(X,Y),
     Xtmp is CurrX - 1,
     notblocked(State, Xtmp, CurrY, X, Y , fl).
 
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player),
+    bounded(X,Y),
     X is CurrX,
     Y > CurrY,
-    bounded(X,Y),
     Ytmp is CurrY + 1,
     notblocked(State, CurrX, Ytmp, X, Y , flu).
 
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player),
+    bounded(X,Y),
     X is CurrX,
     Y < CurrY,
-    bounded(X,Y),
     Ytmp is CurrY - 1,
     notblocked(State, CurrX, Ytmp, X, Y , frd).
 
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player),
+    bounded(X,Y),
     K is X - CurrX,
     K is Y - CurrY,
     K > 0,
-    bounded(X, Y),
     Xtmp is X + 1,
     Ytmp is Y + 1,
     notblocked(State, Xtmp, Ytmp, X, Y, fru).
 
-
-movechk(State, [rook1, X, Y |[]], Player):-
-    getLoc(State, rook1, [rook1, CurrX, CurrY], Player),
+movechk(State, [rook1, X, Y ], Player):-
+    getLoc(State, [rook1, CurrX, CurrY], Player),
+    bounded(X,Y),
     K is X - CurrX,
     K is Y - CurrY,
     K < 0,
-    bounded(X, Y),
     Xtmp is X - 1,
     Ytmp is Y - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, fld).
+    notblocked(State, Xtmp, Ytmp, X, Y, frd).
 
 
 
@@ -151,11 +150,41 @@ freeAux([_|PosLst], X, Y):-
     freeAux(PosLst, X, Y).
 */
 
+getLoc([White, _], Posn ,white):-
+    member(Posn, White).
+    
+getLoc([_, Black], Posn ,white):-
+    member(Posn, Black).
+
 /*Checks if a location is inside the board*/
 
+/*
 bounded(X, Y):-
     X > 0,
     Y > 0,
     X < 10,
     Y < 10.
+*/
+/*Written this way so that it also instantiates*/
+bounded(X, Y):-
+    onetonine(X),
+    onetonine(Y).
 
+onetonine(X):-
+    X = 1.
+onetonine(X):-
+    X = 2.
+onetonine(X):-
+    X = 3.
+onetonine(X):-
+    X = 4.
+onetonine(X):-
+    X = 5.
+onetonine(X):-
+    X = 6.
+onetonine(X):-
+    X = 7.
+onetonine(X):-
+    X = 8.
+onetonine(X):-
+    X = 9.
