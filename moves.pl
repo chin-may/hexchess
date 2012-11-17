@@ -439,7 +439,7 @@ isfree([White, Black], X, Y):-
 getLoc([White, _], Posn ,white):-
     member(Posn, White).
     
-getLoc([_, Black], Posn ,white):-
+getLoc([_, Black], Posn ,black):-
     member(Posn, Black).
 
 /*Checks if a location is inside the board*/
