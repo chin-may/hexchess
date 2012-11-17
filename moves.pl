@@ -357,9 +357,80 @@ movechk(State, [queen, X, Y ], Player):-
     Ytmp is CurrY - 2,
     notblocked(State, Xtmp, Ytmp, X, Y, vd).
 
+/*---------------------------------*/
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    1 is Y - CurrY.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is X - CurrX,
+    Y is CurrY.
+    
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    1 is  CurrY - Y.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is CurrX - X,
+    Y is CurrY.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is X - CurrX,
+    1 is Y - CurrY.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is CurrX - X,
+    1 is CurrY - Y.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    2 is X - CurrX,
+    1 is Y - CurrY.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    2 is CurrX - X,
+    1 is CurrY - Y.
 
 
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is X - CurrX,
+    2 is Y - CurrY.
 
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is CurrX - X,
+    2 is CurrY - Y.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is X - CurrX,
+    1 is CurrY - Y.
+
+movechk(State, [kking, X, Y], Player):-
+    getLoc(State, [kking, CurrX, CurrY], Player),
+    bounded(X,Y),
+    1 is CurrX - X.
+    1 is Y - CurrY,
 /*---------------------------------*/
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
