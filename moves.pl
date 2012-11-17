@@ -112,6 +112,140 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, Xtmp, Ytmp, X, Y, frd).
 
 /*---------------------------------*/
+/*---------------------------------*/
+
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K > 0,
+    Xtmp is CurrX + 2,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vru).
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K < 0,
+    Xtmp is CurrX - 2,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vld).
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd).
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu).
+
+
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY + 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vu).
+
+movechk(State, [bish1, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY - 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vd).
+
+/*---------------------------------*/
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K > 0,
+    Xtmp is CurrX + 2,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vru).
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K < 0,
+    Xtmp is CurrX - 2,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vld).
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd).
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu).
+
+
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY + 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vu).
+
+movechk(State, [bish2, X, Y ], Player):-
+    getLoc(State, [bish1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY - 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vd).
+
+
+
+
+/*---------------------------------*/
+/*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
 
 notblocked(_, X1, Y1, X2, Y2, _):-
