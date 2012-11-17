@@ -134,21 +134,6 @@ isfree([White, Black], X, Y):-
     not(member([_, X, Y] ,White)),
     not(member([_, X, Y] ,Black)).
 
-/*isfree([White,Black|[]], X, Y):-
-    freeAux(White, X, Y),
-    freeAux(Black, X, Y).
-
-freeAux([],_,_).
-
-freeAux([[_,Xloc, Yloc|[]]|_], X, Y):-
-    Xloc is X,
-    Yloc is Y,
-    !,
-    fail.
-
-freeAux([_|PosLst], X, Y):-
-    freeAux(PosLst, X, Y).
-*/
 
 getLoc([White, _], Posn ,white):-
     member(Posn, White).
@@ -157,14 +142,6 @@ getLoc([_, Black], Posn ,white):-
     member(Posn, Black).
 
 /*Checks if a location is inside the board*/
-
-/*
-bounded(X, Y):-
-    X > 0,
-    Y > 0,
-    X < 10,
-    Y < 10.
-*/
 /*Written this way so that it also instantiates*/
 bounded(X, Y):-
     onetonine(X),
