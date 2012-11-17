@@ -12,7 +12,7 @@ movechk(State, [rook1, X, Y ], Player):-
     Y is CurrY,
     X > CurrX,
     Xtmp is CurrX + 1, 
-    notblocked(State, Xtmp, CurrY, X, Y, fr ).
+    notblocked(State, Xtmp, CurrY, X, Y, fr , Player).
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -20,7 +20,7 @@ movechk(State, [rook1, X, Y ], Player):-
     Y is CurrY,
     X < CurrX,
     Xtmp is CurrX - 1,
-    notblocked(State, Xtmp, CurrY, X, Y , fl).
+    notblocked(State, Xtmp, CurrY, X, Y , fl, Player).
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -28,7 +28,7 @@ movechk(State, [rook1, X, Y ], Player):-
     X is CurrX,
     Y > CurrY,
     Ytmp is CurrY + 1,
-    notblocked(State, CurrX, Ytmp, X, Y , flu).
+    notblocked(State, CurrX, Ytmp, X, Y , flu, Player).
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -36,7 +36,7 @@ movechk(State, [rook1, X, Y ], Player):-
     X is CurrX,
     Y < CurrY,
     Ytmp is CurrY - 1,
-    notblocked(State, CurrX, Ytmp, X, Y , frd).
+    notblocked(State, CurrX, Ytmp, X, Y , frd, Player).
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -46,7 +46,7 @@ movechk(State, [rook1, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, fru).
+    notblocked(State, Xtmp, Ytmp, X, Y, fru, Player).
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -56,7 +56,7 @@ movechk(State, [rook1, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, frd).
+    notblocked(State, Xtmp, Ytmp, X, Y, frd, Player).
 /*------------------------------------------*/
 
 movechk(State, [rook2, X, Y ], Player):-
@@ -65,7 +65,7 @@ movechk(State, [rook2, X, Y ], Player):-
     Y is CurrY,
     X > CurrX,
     Xtmp is CurrX + 1, 
-    notblocked(State, Xtmp, CurrY, X, Y, fr ).
+    notblocked(State, Xtmp, CurrY, X, Y, fr , Player).
 
 movechk(State, [rook2, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -73,7 +73,7 @@ movechk(State, [rook2, X, Y ], Player):-
     Y is CurrY,
     X < CurrX,
     Xtmp is CurrX - 1,
-    notblocked(State, Xtmp, CurrY, X, Y , fl).
+    notblocked(State, Xtmp, CurrY, X, Y , fl, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -81,7 +81,7 @@ movechk(State, [rook2, X, Y ], Player):-
     X is CurrX,
     Y > CurrY,
     Ytmp is CurrY + 1,
-    notblocked(State, CurrX, Ytmp, X, Y , flu).
+    notblocked(State, CurrX, Ytmp, X, Y , flu, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -89,7 +89,7 @@ movechk(State, [rook2, X, Y ], Player):-
     X is CurrX,
     Y < CurrY,
     Ytmp is CurrY - 1,
-    notblocked(State, CurrX, Ytmp, X, Y , frd).
+    notblocked(State, CurrX, Ytmp, X, Y , frd, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -99,7 +99,7 @@ movechk(State, [rook2, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, fru).
+    notblocked(State, Xtmp, Ytmp, X, Y, fru, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player),
@@ -109,7 +109,7 @@ movechk(State, [rook2, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, frd).
+    notblocked(State, Xtmp, Ytmp, X, Y, frd, Player).
 
 /*---------------------------------*/
 /*---------------------------------*/
@@ -123,7 +123,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 2,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vru).
+    notblocked(State, Xtmp, Ytmp, X, Y, vru, Player).
 
 movechk(State, [bish1, X, Y ], Player):-
     getLoc(State, [bish1, CurrX, CurrY], Player),
@@ -133,7 +133,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 2,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vld).
+    notblocked(State, Xtmp, Ytmp, X, Y, vld, Player).
 
 movechk(State, [bish1, X, Y ], Player):-
     getLoc(State, [bish1, CurrX, CurrY], Player),
@@ -143,7 +143,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vrd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd, Player).
 
 movechk(State, [bish1, X, Y ], Player):-
     getLoc(State, [bish1, CurrX, CurrY], Player),
@@ -153,7 +153,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vlu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu, Player).
 
 
 
@@ -165,7 +165,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vu, Player).
 
 movechk(State, [bish1, X, Y ], Player):-
     getLoc(State, [bish1, CurrX, CurrY], Player),
@@ -175,7 +175,7 @@ movechk(State, [bish1, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vd, Player).
 
 /*---------------------------------*/
 
@@ -187,7 +187,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 2,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vru).
+    notblocked(State, Xtmp, Ytmp, X, Y, vru, Player).
 
 movechk(State, [bish2, X, Y ], Player):-
     getLoc(State, [bish2, CurrX, CurrY], Player),
@@ -197,7 +197,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 2,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vld).
+    notblocked(State, Xtmp, Ytmp, X, Y, vld, Player).
 
 movechk(State, [bish2, X, Y ], Player):-
     getLoc(State, [bish2, CurrX, CurrY], Player),
@@ -207,7 +207,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vrd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd, Player).
 
 movechk(State, [bish2, X, Y ], Player):-
     getLoc(State, [bish2, CurrX, CurrY], Player),
@@ -217,7 +217,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vlu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu, Player).
 
 
 
@@ -229,7 +229,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vu, Player).
 
 movechk(State, [bish2, X, Y ], Player):-
     getLoc(State, [bish2, CurrX, CurrY], Player),
@@ -239,7 +239,7 @@ movechk(State, [bish2, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vd, Player).
 
 /*---------------------------------*/
     
@@ -249,7 +249,7 @@ movechk(State, [queen, X, Y ], Player):-
     Y is CurrY,
     X > CurrX,
     Xtmp is CurrX + 1, 
-    notblocked(State, Xtmp, CurrY, X, Y, fr ).
+    notblocked(State, Xtmp, CurrY, X, Y, fr , Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -257,7 +257,7 @@ movechk(State, [queen, X, Y ], Player):-
     Y is CurrY,
     X < CurrX,
     Xtmp is CurrX - 1,
-    notblocked(State, Xtmp, CurrY, X, Y , fl).
+    notblocked(State, Xtmp, CurrY, X, Y , fl, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -265,7 +265,7 @@ movechk(State, [queen, X, Y ], Player):-
     X is CurrX,
     Y > CurrY,
     Ytmp is CurrY + 1,
-    notblocked(State, CurrX, Ytmp, X, Y , flu).
+    notblocked(State, CurrX, Ytmp, X, Y , flu, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -273,7 +273,7 @@ movechk(State, [queen, X, Y ], Player):-
     X is CurrX,
     Y < CurrY,
     Ytmp is CurrY - 1,
-    notblocked(State, CurrX, Ytmp, X, Y , frd).
+    notblocked(State, CurrX, Ytmp, X, Y , frd, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -283,7 +283,7 @@ movechk(State, [queen, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, fru).
+    notblocked(State, Xtmp, Ytmp, X, Y, fru, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -293,7 +293,7 @@ movechk(State, [queen, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, frd).
+    notblocked(State, Xtmp, Ytmp, X, Y, frd, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -303,7 +303,7 @@ movechk(State, [queen, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 2,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vru).
+    notblocked(State, Xtmp, Ytmp, X, Y, vru, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -313,7 +313,7 @@ movechk(State, [queen, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 2,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vld).
+    notblocked(State, Xtmp, Ytmp, X, Y, vld, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -323,7 +323,7 @@ movechk(State, [queen, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vrd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -333,7 +333,7 @@ movechk(State, [queen, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY + 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, vlu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu, Player).
 
 
 
@@ -345,7 +345,7 @@ movechk(State, [queen, X, Y ], Player):-
     K > 0,
     Xtmp is CurrX + 1,
     Ytmp is CurrY + 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vu).
+    notblocked(State, Xtmp, Ytmp, X, Y, vu, Player).
 
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player),
@@ -355,7 +355,7 @@ movechk(State, [queen, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 2,
-    notblocked(State, Xtmp, Ytmp, X, Y, vd).
+    notblocked(State, Xtmp, Ytmp, X, Y, vd, Player).
 
 /*---------------------------------*/
 
@@ -435,69 +435,71 @@ movechk(State, [kking, X, Y], Player):-
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
 
-notblocked(_, X1, Y1, X2, Y2, _):-
+notblocked(_, X1, Y1, X2, Y2, _, Player):-
     X1 is X2,
     Y1 is Y2,
+    isfreeofplayer(State, X1, Y1, Player),
     !.
 
+
 /*For faces*/
-notblocked(State, X1, Y1, X2, Y2, fr):-
+notblocked(State, X1, Y1, X2, Y2, fr, Player):-
     isfree(State, X1, Y1),
     Xn is X1 + 1,
     notblocked(State, Xn, Y1, X2, Y2, fr).
 
 
-notblocked(State, X1, Y1, X2, Y2, fl):-
+notblocked(State, X1, Y1, X2, Y2, fl, Player):-
     isfree(State, X1, Y1),
     Xn is X1 - 1,
-    notblocked(State, Xn, Y1, X2, Y2, fl).
+    notblocked(State, Xn, Y1, X2, Y2, fl, Player).
 
 
-notblocked(State, X1, Y1, X2, Y2, flu):-
+notblocked(State, X1, Y1, X2, Y2, flu, Player):-
     isfree(State, X1, Y1),
     Yn is Y1 + 1,
-    notblocked(State, X1, Yn, X2, Y2, flu).
+    notblocked(State, X1, Yn, X2, Y2, flu, Player).
 
 
-notblocked(State, X1, Y1, X2, Y2, frd):-
+notblocked(State, X1, Y1, X2, Y2, frd, Player):-
     isfree(State, X1, Y1),
     Yn is Y1 - 1,
-    notblocked(State, X1, Yn, X2, Y2, frd).
+    notblocked(State, X1, Yn, X2, Y2, frd, Player).
 
 
-notblocked(State, X1, Y1, X2, Y2, fru):-
+notblocked(State, X1, Y1, X2, Y2, fru, Player):-
     isfree(State, X1, Y1),
     Xn is X1 + 1,
     Yn is Y1 + 1,
-    notblocked(State, Xn, Yn, X2, Y2, fru).
+    notblocked(State, Xn, Yn, X2, Y2, fru, Player).
 
-notblocked(State, X1, Y1, X2, Y2, fld):-
+notblocked(State, X1, Y1, X2, Y2, fld, Player):-
     isfree(State, X1, Y1),
     Xn is X1 - 1,
     Yn is Y1 - 1,
-    notblocked(State, Xn, Yn, X2, Y2, fld).
+    notblocked(State, Xn, Yn, X2, Y2, fld, Player).
 
 
 /*For vertices*/
 
-notblocked(State, X1, Y1, X2, Y2, vu):-
+notblocked(State, X1, Y1, X2, Y2, vu, Player):-
     isfree(State, X1, Y1),
     Xn is X1 + 1,
     Yn is Y1 + 2,
-    notblocked(State, Xn, Yn, X2, Y2, vu).
+    notblocked(State, Xn, Yn, X2, Y2, vu, Player).
 
-notblocked(State, X1, Y1, X2, Y2, vd):-
+notblocked(State, X1, Y1, X2, Y2, vd, Player):-
     isfree(State, X1, Y1),
     Xn is X1 - 1,
     Yn is Y1 - 2,
-    notblocked(State, Xn, Yn, X2, Y2, vd).
+    notblocked(State, Xn, Yn, X2, Y2, vd, Player).
 
 
-notblocked(State, X1, Y1, X2, Y2, vru):-
+notblocked(State, X1, Y1, X2, Y2, vru, Player):-
     isfree(State, X1, Y1),
     Xn is X1 + 2,
     Yn is Y1 + 1,
-    notblocked(State, Xn, Yn, X2, Y2, vru).
+    notblocked(State, Xn, Yn, X2, Y2, vru, Player).
 
 
 /*For checking if the location X, Y is unoccupied*/
