@@ -44,8 +44,8 @@ movechk(State, [rook1, X, Y ], Player):-
     K is X - CurrX,
     K is Y - CurrY,
     K > 0,
-    Xtmp is X + 1,
-    Ytmp is Y + 1,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY + 1,
     notblocked(State, Xtmp, Ytmp, X, Y, fru).
 
 movechk(State, [rook1, X, Y ], Player):-
@@ -54,8 +54,8 @@ movechk(State, [rook1, X, Y ], Player):-
     K is X - CurrX,
     K is Y - CurrY,
     K < 0,
-    Xtmp is X - 1,
-    Ytmp is Y - 1,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY - 1,
     notblocked(State, Xtmp, Ytmp, X, Y, frd).
 
 
