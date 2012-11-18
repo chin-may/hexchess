@@ -545,32 +545,32 @@ movechk(State, [kngt1, X, Y ], Player):-
 
 /*Checking pawns*/
 movechk(State, [pawn1, X, Y], Player):-
-    movechk_aux(State, [pawn1, X, Y ], white).
+    movechk_aux(State, [pawn1, X, Y ], Player).
 
 
 movechk(State, [pawn2, X, Y], Player):-
-    movechk_aux(State, [pawn2, X, Y ], white).
+    movechk_aux(State, [pawn2, X, Y ], Player).
 
 movechk(State, [pawn3, X, Y], Player):-
-    movechk_aux(State, [pawn3, X, Y ], white).
+    movechk_aux(State, [pawn3, X, Y ], Player).
 
 movechk(State, [pawn4, X, Y], Player):-
-    movechk_aux(State, [pawn4, X, Y ], white).
+    movechk_aux(State, [pawn4, X, Y ], Player).
 
 movechk(State, [pawn5, X, Y], Player):-
-    movechk_aux(State, [pawn5, X, Y ], white).
+    movechk_aux(State, [pawn5, X, Y ], Player).
 
 movechk(State, [pawn6, X, Y], Player):-
-    movechk_aux(State, [pawn6, X, Y ], white).
+    movechk_aux(State, [pawn6, X, Y ], Player).
 
 movechk(State, [pawn7, X, Y], Player):-
-    movechk_aux(State, [pawn7, X, Y ], white).
+    movechk_aux(State, [pawn7, X, Y ], Player).
 
 movechk(State, [pawn8, X, Y], Player):-
-    movechk_aux(State, [pawn8, X, Y ], white).
+    movechk_aux(State, [pawn8, X, Y ], Player).
 
 movechk(State, [pawn9, X, Y], Player):-
-    movechk_aux(State, [pawn9, X, Y ], white).
+    movechk_aux(State, [pawn9, X, Y ], Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
     getLoc(State, [Pawn, CurrX, CurrY], Player),
@@ -582,7 +582,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     isfree(State,CurrX, Ytmp).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     CurrY is 3,
     2 is CurrY - Y,
@@ -592,14 +592,14 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     isfree(State, Xtmp, Ytmp).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     X is CurrX,
     Y is CurrY + 1,
     isfree(State, X, Y).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     X is CurrX + 1,
     Y is CurrY + 1,
@@ -607,7 +607,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
 
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     X is CurrX,
     Y is CurrY + 1,
@@ -615,7 +615,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     X is CurrX + 1,
     Y is CurrY + 1,
@@ -623,7 +623,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     CurrY is 7,
     2 is Y - CurrY,
@@ -632,7 +632,7 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     isfree(State,CurrX, Ytmp).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     CurrY is 7,
     2 is Y - CurrY,
@@ -642,7 +642,7 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     isfree(State, Xtmp, Ytmp).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     X is CurrX,
     Y is CurrY - 1,
@@ -650,14 +650,14 @@ movechk_aux(State, [Pawn, X, Y ], black):-
 
 
 movechk_aux(State, [Pawn, X, Y ], black):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     X is CurrX - 1,
     Y is CurrY - 1,
     isfree(State, X, Y).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     X is CurrX,
     Y is CurrY - 1,
@@ -665,7 +665,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], black),
     bounded(X,Y),
     X is CurrX - 1,
     Y is CurrY - 1,
