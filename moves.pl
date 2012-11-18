@@ -543,6 +543,136 @@ movechk(State, [kngt1, X, Y ], Player):-
     isfreeofplayer(State, X, Y, Player).
 /* checking knight ends */
 
+/*Checking pawns*/
+movechk(State, [pawn1, X, Y], Player):-
+    movechk_aux(State, [pawn1, X, Y ], white).
+
+
+movechk(State, [pawn2, X, Y], Player):-
+    movechk_aux(State, [pawn2, X, Y ], white).
+
+movechk(State, [pawn3, X, Y], Player):-
+    movechk_aux(State, [pawn3, X, Y ], white).
+
+movechk(State, [pawn4, X, Y], Player):-
+    movechk_aux(State, [pawn4, X, Y ], white).
+
+movechk(State, [pawn5, X, Y], Player):-
+    movechk_aux(State, [pawn5, X, Y ], white).
+
+movechk(State, [pawn6, X, Y], Player):-
+    movechk_aux(State, [pawn6, X, Y ], white).
+
+movechk(State, [pawn7, X, Y], Player):-
+    movechk_aux(State, [pawn7, X, Y ], white).
+
+movechk(State, [pawn8, X, Y], Player):-
+    movechk_aux(State, [pawn8, X, Y ], white).
+
+movechk(State, [pawn9, X, Y], Player):-
+    movechk_aux(State, [pawn9, X, Y ], white).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    CurrY is 3,
+    2 is CurrY - Y,
+    X is CurrX,
+    Ytmp is CurrY + 1,
+    isfree(State,CurrX, Ytmp).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    CurrY is 3,
+    2 is CurrY - Y,
+    2 is CurrX - X,
+    Ytmp is CurrY + 1,
+    Xtmp is CurrX + 1,
+    isfree(State, Xtmp, Ytmp).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    Y is CurrY + 1,
+    isfree(State, X, Y).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX + 1,
+    Y is CurrY + 1,
+    isfree(State, X, Y).
+
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    Y is CurrY + 1,
+    not(isfree(State, X, Y),
+    isfreeofplayer(State, X, Y, Player).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX + 1,
+    Y is CurrY + 1,
+    not(isfree(State, X, Y),
+    isfreeofplayer(State, X, Y, Player).
+
+movechk_aux(State, [Pawn, X, Y ], black):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    CurrY is 7,
+    2 is Y - CurrY,
+    X is CurrX,
+    Ytmp is CurrY - 1,
+    isfree(State,CurrX, Ytmp).
+
+movechk_aux(State, [Pawn, X, Y ], black):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    CurrY is 7,
+    2 is Y - CurrY
+    2 is X - CurrX
+    Ytmp is CurrY - 1,
+    Xtmp is CurrX - 1,
+    isfree(State, Xtmp, Ytmp).
+
+movechk_aux(State, [Pawn, X, Y ], black):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    Y is CurrY - 1,
+    isfree(State, X, Y).
+
+
+movechk_aux(State, [Pawn, X, Y ], black):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX - 1,
+    Y is CurrY - 1,
+    isfree(State, X, Y).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX,
+    Y is CurrY - 1,
+    not(isfree(State, X, Y),
+    isfreeofplayer(State, X, Y, Player).
+
+movechk_aux(State, [Pawn, X, Y ], white):-
+    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    bounded(X,Y),
+    X is CurrX - 1,
+    Y is CurrY - 1,
+    not(isfree(State, X, Y),
+    isfreeofplayer(State, X, Y, Player).
+
+/*---------------------------------*/
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
 
@@ -620,10 +750,10 @@ isfree([White, Black], X, Y):-
     not(member([_, X, Y] ,Black)).
 
 /*For checking if the location X, Y is not occupied by given player*/
-isfreeofplayer([White, Black], X, Y,White):-
+isfreeofplayer([White, Black], X, Y,white):-
     not(member([_, X, Y] ,White)).
     
-isfreeofplayer([White, Black], X, Y,Black):-
+isfreeofplayer([White, Black], X, Y,black):-
     not(member([_, X, Y] ,Black)).
 
 
