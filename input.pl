@@ -29,14 +29,18 @@ validNum(7).
 validNum(8).
 validNum(9).
 
-input(Move):-
+input(Move, State, Player):-
+    nl,
     write('Enter the position details of move: '), read([A,X,Y]),
-    ((piece(A), validNum(X), validNum(Y)) ->
+    ((piece(A), validNum(X), validNum(Y), movechk(State, [A,X,Y], Player)) ->
     (write('The position of '), write(A),write(' is at '),write(X),write(', '),write(Y),nl),
     !,
     Move = [A,X,Y];
-    (write('invalid move') ),
+    (write('invalid move'), nl ),
     fail).
+
+input(Move, State, Player):-
+    input(Move, State, Player).
 
 initializeBoard([White,Black]) :-
     White = [[pawn1,1,3],[pawn2,2,3],[pawn3,3,3],[pawn4,4,3],[pawn5,5,3],[pawn6,6,3],[pawn7,7,3],[pawn8,8,3],[pawn9,9,3],
