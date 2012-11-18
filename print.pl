@@ -1,5 +1,9 @@
+printboard(State):-
+    show(State, 1,9),
+    !.
+
 show(_, _, Y):-
-    Y < 0.
+    Y = 0.
 
 show(State, X, Y):-
     X > 9,
