@@ -429,8 +429,8 @@ movechk(State, [kking, X, Y], Player):-
 movechk(State, [kking, X, Y], Player):-
     getLoc(State, [kking, CurrX, CurrY], Player),
     bounded(X,Y),
-    1 is CurrX - X.
-    1 is Y - CurrY,
+    1 is CurrX - X,
+    1 is Y - CurrY.
 
 /* checking knight begins*/
 %x+3.y+1
@@ -611,7 +611,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     bounded(X,Y),
     X is CurrX,
     Y is CurrY + 1,
-    not(isfree(State, X, Y),
+    not(isfree(State, X, Y)),
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
@@ -619,7 +619,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     bounded(X,Y),
     X is CurrX + 1,
     Y is CurrY + 1,
-    not(isfree(State, X, Y),
+    not(isfree(State, X, Y)),
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
@@ -635,8 +635,8 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     getLoc(State, [Pawn, CurrX, CurrY], Player),
     bounded(X,Y),
     CurrY is 7,
-    2 is Y - CurrY
-    2 is X - CurrX
+    2 is Y - CurrY,
+    2 is X - CurrX,
     Ytmp is CurrY - 1,
     Xtmp is CurrX - 1,
     isfree(State, Xtmp, Ytmp).
@@ -661,7 +661,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     bounded(X,Y),
     X is CurrX,
     Y is CurrY - 1,
-    not(isfree(State, X, Y),
+    not(isfree(State, X, Y)),
     isfreeofplayer(State, X, Y, Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
@@ -669,7 +669,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     bounded(X,Y),
     X is CurrX - 1,
     Y is CurrY - 1,
-    not(isfree(State, X, Y),
+    not(isfree(State, X, Y)),
     isfreeofplayer(State, X, Y, Player).
 
 /*---------------------------------*/
