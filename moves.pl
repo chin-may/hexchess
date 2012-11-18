@@ -573,7 +573,7 @@ movechk(State, [pawn9, X, Y], Player):-
     movechk_aux(State, [pawn9, X, Y ], Player).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
-    getLoc(State, [Pawn, CurrX, CurrY], Player),
+    getLoc(State, [Pawn, CurrX, CurrY], white),
     bounded(X,Y),
     CurrY is 3,
     2 is CurrY - Y,
@@ -612,7 +612,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     X is CurrX,
     Y is CurrY + 1,
     not(isfree(State, X, Y)),
-    isfreeofplayer(State, X, Y, Player).
+    isfreeofplayer(State, X, Y, white).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
     getLoc(State, [Pawn, CurrX, CurrY], white),
@@ -620,7 +620,7 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     X is CurrX + 1,
     Y is CurrY + 1,
     not(isfree(State, X, Y)),
-    isfreeofplayer(State, X, Y, Player).
+    isfreeofplayer(State, X, Y, white).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
     getLoc(State, [Pawn, CurrX, CurrY], black),
@@ -662,7 +662,7 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     X is CurrX,
     Y is CurrY - 1,
     not(isfree(State, X, Y)),
-    isfreeofplayer(State, X, Y, Player).
+    isfreeofplayer(State, X, Y, black).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
     getLoc(State, [Pawn, CurrX, CurrY], black),
@@ -670,24 +670,24 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     X is CurrX - 1,
     Y is CurrY - 1,
     not(isfree(State, X, Y)),
-    isfreeofplayer(State, X, Y, Player).
+    isfreeofplayer(State, X, Y, black).
 
 /*---------------------------------*/
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
 
-notblocked(_, X1, Y1, X2, Y2, _, Player):-
+notblocked(State, X1, Y1, X2, Y2, _, Player):-
     X1 is X2,
     Y1 is Y2,
-    isfreeofplayer(State, X1, Y1, Player),
-    !.
+    !,
+    isfreeofplayer(State, X1, Y1, Player).
 
 
 /*For faces*/
 notblocked(State, X1, Y1, X2, Y2, fr, Player):-
     isfree(State, X1, Y1),
     Xn is X1 + 1,
-    notblocked(State, Xn, Y1, X2, Y2, fr).
+    notblocked(State, Xn, Y1, X2, Y2, fr, Player).
 
 
 notblocked(State, X1, Y1, X2, Y2, fl, Player):-
@@ -750,10 +750,10 @@ isfree([White, Black], X, Y):-
     not(member([_, X, Y] ,Black)).
 
 /*For checking if the location X, Y is not occupied by given player*/
-isfreeofplayer([White, Black], X, Y,white):-
+isfreeofplayer([White, _], X, Y,white):-
     not(member([_, X, Y] ,White)).
     
-isfreeofplayer([White, Black], X, Y,black):-
+isfreeofplayer([_, Black], X, Y,black):-
     not(member([_, X, Y] ,Black)).
 
 
