@@ -5,6 +5,11 @@ movechk(State, [Piece,X,Y], Player):-
     notblocked.
 */
 
+movechk_w(State, Move, Player):-
+    movechk(State, Move, Player),
+    makeMove(State, Move, TempState, Player),
+    not(ischeck( TempState, Player) ).
+
 
 movechk(State, [rook1, X, Y ], Player):-
     getLoc(State, [rook1, CurrX, CurrY], Player), /*To find the current location of the piece*/
@@ -60,7 +65,7 @@ movechk(State, [rook1, X, Y ], Player):-
 /*------------------------------------------*/
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player), /*To find the current location of the piece*/
+    getLoc(State, [rook2, CurrX, CurrY], Player), /*To find the current location of the piece*/
     bounded(X,Y),  
     Y is CurrY,
     X > CurrX,
@@ -68,7 +73,7 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, Xtmp, CurrY, X, Y, fr , Player).
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player),
+    getLoc(State, [rook2, CurrX, CurrY], Player),
     bounded(X,Y),
     Y is CurrY,
     X < CurrX,
@@ -76,7 +81,7 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, Xtmp, CurrY, X, Y , fl, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player),
+    getLoc(State, [rook2, CurrX, CurrY], Player),
     bounded(X,Y),
     X is CurrX,
     Y > CurrY,
@@ -84,7 +89,7 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, CurrX, Ytmp, X, Y , flu, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player),
+    getLoc(State, [rook2, CurrX, CurrY], Player),
     bounded(X,Y),
     X is CurrX,
     Y < CurrY,
@@ -92,7 +97,7 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, CurrX, Ytmp, X, Y , frd, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player),
+    getLoc(State, [rook2, CurrX, CurrY], Player),
     bounded(X,Y),
     K is X - CurrX,
     K is Y - CurrY,
@@ -102,7 +107,7 @@ movechk(State, [rook2, X, Y ], Player):-
     notblocked(State, Xtmp, Ytmp, X, Y, fru, Player).
 
 movechk(State, [rook2, X, Y ], Player):-
-    getLoc(State, [rook1, CurrX, CurrY], Player),
+    getLoc(State, [rook2, CurrX, CurrY], Player),
     bounded(X,Y),
     K is X - CurrX,
     K is Y - CurrY,
