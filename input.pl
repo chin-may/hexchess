@@ -32,7 +32,7 @@ validNum(9).
 input(Move, State, Player):-
     nl,
     write('Enter the position details of move: '), read([A,X,Y]),
-    ((piece(A), validNum(X), validNum(Y), movechk(State, [A,X,Y], Player)) ->
+    ((piece(A), validNum(X), validNum(Y), movechk_w(State, [A,X,Y], Player)) ->
     (write('The position of '), write(A),write(' is at '),write(X),write(', '),write(Y),nl),
     !,
     Move = [A,X,Y];
