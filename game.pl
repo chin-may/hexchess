@@ -15,14 +15,17 @@ play(State, white):-
     movechk_w(State,Move, white),
     makeMove(State, Move, NewState, white),
     printboard(NewState),
+    !,
     play(NewState, black).
     
 
 play(State, black):-
     getOwnMove(State, black, Move),
+    printboard(State), write(Move),nl,
     movechk_w(State,Move, black),
     makeMove(State, Move, NewState, black),
     printboard(NewState),
+    !,
     play(NewState, white).
 
 
