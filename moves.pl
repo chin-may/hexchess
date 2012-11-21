@@ -586,7 +586,8 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     2 is Y - CurrY,
     X is CurrX,
     Ytmp is CurrY + 1,
-    isfree(State,CurrX, Ytmp).
+    isfree(State,CurrX, Ytmp),
+    isfree(State, X,Y).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
     getLoc(State, [Pawn, CurrX, CurrY], white),
@@ -596,7 +597,8 @@ movechk_aux(State, [Pawn, X, Y ], white):-
     2 is X - CurrX,
     Ytmp is CurrY + 1,
     Xtmp is CurrX + 1,
-    isfree(State, Xtmp, Ytmp).
+    isfree(State, Xtmp, Ytmp),
+    isfree(State, X,Y).
 
 movechk_aux(State, [Pawn, X, Y ], white):-
     getLoc(State, [Pawn, CurrX, CurrY], white),
@@ -636,7 +638,8 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     2 is CurrY - Y,
     X is CurrX,
     Ytmp is CurrY - 1,
-    isfree(State,CurrX, Ytmp).
+    isfree(State,CurrX, Ytmp),
+    isfree(State,X,Y).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
     getLoc(State, [Pawn, CurrX, CurrY], black),
@@ -646,7 +649,8 @@ movechk_aux(State, [Pawn, X, Y ], black):-
     2 is CurrX - X,
     Ytmp is CurrY - 1,
     Xtmp is CurrX - 1,
-    isfree(State, Xtmp, Ytmp).
+    isfree(State, Xtmp, Ytmp),
+    isfree(State,X,Y).
 
 movechk_aux(State, [Pawn, X, Y ], black):-
     getLoc(State, [Pawn, CurrX, CurrY], black),
