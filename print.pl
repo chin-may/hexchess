@@ -1,6 +1,7 @@
 printboard(State):-
     show(State, 1,9),
-    !.
+    !,
+    nl.
 
 show(_, _, Y):-
     Y = 0.

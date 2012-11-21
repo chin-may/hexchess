@@ -28,7 +28,7 @@ validNum(6).
 validNum(7).
 validNum(8).
 validNum(9).
-
+    
 input(Move, State, Player):-
     nl,
     write('Enter the position details of move: '), read([A,X,Y]),

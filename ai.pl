@@ -1,4 +1,3 @@
-   
 getOwnMove(State, Player, Move):-
     other(Player, OP),
     %setof(OpV,  getOppVal(NewState, OP, OpV) ^ makeMove(State, Move, NewState, Player) ^movechk_w(State, Move, Player), Vals),
@@ -20,6 +19,7 @@ getOppVal(State, OPlayer, Val):-
     lmax(Vals, Val).
 
 moveEval(State, Player, Val):-
+    %can that move be made
     movechk(State, M, Player),
     makeMove(State, M, NewState, Player),
     evalBoard(NewState, Player, Val).

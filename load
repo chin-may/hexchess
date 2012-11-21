@@ -1,0 +1,5 @@
+compile('moves.pl').
+compile('game.pl').
+compile('input.pl').
+compile('print.pl').
+compile('alphaBeta.pl').

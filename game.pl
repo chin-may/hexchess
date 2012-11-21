@@ -1,7 +1,8 @@
 begin:-
     initializeBoard(State),
     printboard(State),
-    play(State, white).
+    aiPlay(State, white).
+    
 
 
 play(State, Player):-
@@ -15,23 +16,21 @@ play(State, white):-
     movechk_w(State,Move, white),
     makeMove(State, Move, NewState, white),
     printboard(NewState),
-    !,
     play(NewState, black).
     
-
 play(State, black):-
-    getOwnMove(State, black, Move),
+    input(Move,State,black),
     printboard(State), write(Move),nl,
     movechk_w(State,Move, black),
     makeMove(State, Move, NewState, black),
     printboard(NewState),
-    !,
     play(NewState, white).
 
 
 ischeck(State, Player):-
     getLoc(State, [kking, Xk, Yk], Player),
     other(Player, OP),
+%    can the opponent reach this cell using any piece
     movechk(State, [_, Xk, Yk], OP).
 
 cansave(State, Player):-

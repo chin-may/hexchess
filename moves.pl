@@ -5,9 +5,11 @@ movechk(State, [Piece,X,Y], Player):-
     notblocked.
 */
 
+%    Returns true if the move is safe : king is not check-mated
 movechk_w(State, Move, Player):-
     movechk(State, Move, Player),
     makeMove(State, Move, TempState, Player),
+%    Check if our king is check-mated
     not(ischeck( TempState, Player) ).
 
 
