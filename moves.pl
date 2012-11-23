@@ -63,7 +63,7 @@ movechk(State, [rook1, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, frd, Player).
+    notblocked(State, Xtmp, Ytmp, X, Y, fld, Player).
 /*------------------------------------------*/
 
 movechk(State, [rook2, X, Y ], Player):-
@@ -116,7 +116,7 @@ movechk(State, [rook2, X, Y ], Player):-
     K < 0,
     Xtmp is CurrX - 1,
     Ytmp is CurrY - 1,
-    notblocked(State, Xtmp, Ytmp, X, Y, frd, Player).
+    notblocked(State, Xtmp, Ytmp, X, Y, fld, Player).
 
 /*---------------------------------*/
 /*---------------------------------*/

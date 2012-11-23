@@ -1,7 +1,7 @@
 begin:-
     initializeBoard(State),
     printboard(State),
-    aiPlay(State, white).
+    play(State, white).
     
 
 
@@ -16,7 +16,7 @@ play(State, white):-
     movechk_w(State,Move, white),
     makeMove(State, Move, NewState, white),
     printboard(NewState),
-    play(NewState, black).
+    aiPlay(NewState, black).
     
 play(State, black):-
     input(Move,State,black),
@@ -46,11 +46,13 @@ gameOver(State, Player):-
 
 makeMove([White,Black], [Piece, X, Y], [ [ [Piece, X, Y] | TempWhite] , NewBlack], white):-
     select([_, X, Y], Black, NewBlack),
-    select([Piece,_,_], White, TempWhite).
+    select([Piece,_,_], White, TempWhite),
+    !.
 
 makeMove([White,Black], [Piece, X, Y], [NewWhite, [ [Piece,X,Y] | TempBlack ]], black):-
     select([_, X, Y], White, NewWhite),
-    select([Piece,_,_], Black, TempBlack).
+    select([Piece,_,_], Black, TempBlack),
+    !.
 
 
 

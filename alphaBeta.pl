@@ -29,7 +29,7 @@ delay(N):-
 
 
 getOwnMove(State, Player, Move):-
-    alpha_beta(Player,3,State,-100000,100000,Move,_Value).
+    alpha_beta(Player,4,State,-100000,100000,Move,_Value).
     
     
 alpha_beta(Player,0,State,_Alpha,_Beta,_NoMove,Value) :- 
