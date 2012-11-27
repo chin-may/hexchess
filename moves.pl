@@ -395,6 +395,74 @@ movechk(State, [bish2, X, Y ], Player):-
     notblocked(State, Xtmp, Ytmp, X, Y, vd, Player).
 
 /*---------------------------------*/
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K > 0,
+    Xtmp is CurrX + 2,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vru, Player).
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * 2,
+    K < 0,
+    Xtmp is CurrX - 2,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vld, Player).
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY - 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vrd, Player).
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is X - CurrX,
+    K is (Y - CurrY) * -1,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY + 1,
+    notblocked(State, Xtmp, Ytmp, X, Y, vlu, Player).
+
+
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K > 0,
+    Xtmp is CurrX + 1,
+    Ytmp is CurrY + 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vu, Player).
+
+movechk(State, [bish3, X, Y ], Player):-
+    getLoc(State, [bish3, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K is (X - CurrX) * 2,
+    K is Y - CurrY ,
+    K < 0,
+    Xtmp is CurrX - 1,
+    Ytmp is CurrY - 2,
+    notblocked(State, Xtmp, Ytmp, X, Y, vd, Player).
+
+/*---------------------------------*/
+
+
+
+
     
 movechk(State, [queen, X, Y ], Player):-
     getLoc(State, [queen, CurrX, CurrY], Player), /*To find the current location of the piece*/
