@@ -13,7 +13,7 @@ aiPlay(State, black):-
     makeMove(State, Move, NewState, black),
     printboard(NewState),
 %    delay(10000000),
-    aiPlay(NewState, white).
+    play(NewState, white).
 
 aiPlay(State, Player):-
     gameOver(State, Player),
@@ -29,7 +29,7 @@ delay(N):-
 
 
 getOwnMove(State, Player, Move):-
-    alpha_beta(Player,4,State,-100000,100000,Move,_Value).
+    alpha_beta(Player,2,State,-100000,100000,Move,_Value).
     
     
 alpha_beta(Player,0,State,_Alpha,_Beta,_NoMove,Value) :- 

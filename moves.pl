@@ -150,6 +150,230 @@ movechk_aux(State, [Pawn, X, Y ], black):-
 /*---------------------------------*/
 
 
+/* checking knight begins*/
+%x+3.y+1
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 3,
+    K2 = 1,
+    isfreeofplayer(State, X, Y, Player).
+%x+3.y+2    
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 3,
+    K2 = 2,
+    isfreeofplayer(State, X, Y, Player).
+%x+1.y+3    
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 1,
+    K2 = 3,
+    isfreeofplayer(State, X, Y, Player).
+%x+2.y+3    
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 2,
+    K2 = 3,
+    isfreeofplayer(State, X, Y, Player).
+%x-1.y+2    
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = 2,
+    isfreeofplayer(State, X, Y, Player).
+%x-2.y+1    
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = 1,
+    isfreeofplayer(State, X, Y, Player).
+%x+1.y-2
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 1,
+    K2 = -2,
+    isfreeofplayer(State, X, Y, Player).
+%x+2.y-1
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 2,
+    K2 = -1,
+    isfreeofplayer(State, X, Y, Player).
+%x-1.y-3
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = -3,
+    isfreeofplayer(State, X, Y, Player).
+%x-2.y-3
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -2,
+    K2 = -3,
+    isfreeofplayer(State, X, Y, Player).
+%x-3.y-1
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -3,
+    K2 = -1,
+    isfreeofplayer(State, X, Y, Player).
+%x-3.y-2
+movechk(State, [kngt1, X, Y ], Player):-
+    getLoc(State, [kngt1, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -3,
+    K2 = -2,
+    isfreeofplayer(State, X, Y, Player).
+/* checking knight ends */
+
+
+/* checking knight2 begins*/
+%x+3.y+1
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 3,
+    K2 = 1,
+    isfreeofplayer(State, X, Y, Player).
+%x+3.y+2    
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 3,
+    K2 = 2,
+    isfreeofplayer(State, X, Y, Player).
+%x+1.y+3    
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 1,
+    K2 = 3,
+    isfreeofplayer(State, X, Y, Player).
+%x+2.y+3    
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 2,
+    K2 = 3,
+    isfreeofplayer(State, X, Y, Player).
+%x-1.y+2    
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = 2,
+    isfreeofplayer(State, X, Y, Player).
+%x-2.y+1    
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = 1,
+    isfreeofplayer(State, X, Y, Player).
+%x+1.y-2
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 1,
+    K2 = -2,
+    isfreeofplayer(State, X, Y, Player).
+%x+2.y-1
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = 2,
+    K2 = -1,
+    isfreeofplayer(State, X, Y, Player).
+%x-1.y-3
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -1,
+    K2 = -3,
+    isfreeofplayer(State, X, Y, Player).
+%x-2.y-3
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -2,
+    K2 = -3,
+    isfreeofplayer(State, X, Y, Player).
+%x-3.y-1
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -3,
+    K2 = -1,
+    isfreeofplayer(State, X, Y, Player).
+%x-3.y-2
+movechk(State, [kngt2, X, Y ], Player):-
+    getLoc(State, [kngt2, CurrX, CurrY], Player),
+    bounded(X,Y),
+    K1 is X - CurrX,
+    K2 is Y - CurrY,
+    K1 = -3,
+    K2 = -2,
+    isfreeofplayer(State, X, Y, Player).
+/* checking knight ends */
+
+
 
 
 
@@ -652,117 +876,6 @@ movechk(State, [kking, X, Y], Player):-
     bounded(X,Y),
     1 is CurrX - X,
     1 is Y - CurrY.
-
-/* checking knight begins*/
-%x+3.y+1
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 3,
-    K2 = 1,
-    isfreeofplayer(State, X, Y, Player).
-%x+3.y+2    
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 3,
-    K2 = 2,
-    isfreeofplayer(State, X, Y, Player).
-%x+1.y+3    
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 1,
-    K2 = 3,
-    isfreeofplayer(State, X, Y, Player).
-%x+2.y+3    
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 2,
-    K2 = 3,
-    isfreeofplayer(State, X, Y, Player).
-%x-1.y+2    
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -1,
-    K2 = 2,
-    isfreeofplayer(State, X, Y, Player).
-%x-2.y+1    
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -1,
-    K2 = 1,
-    isfreeofplayer(State, X, Y, Player).
-%x+1.y-2
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 1,
-    K2 = -2,
-    isfreeofplayer(State, X, Y, Player).
-%x+2.y-1
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = 2,
-    K2 = -1,
-    isfreeofplayer(State, X, Y, Player).
-%x-1.y-3
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -1,
-    K2 = -3,
-    isfreeofplayer(State, X, Y, Player).
-%x-2.y-3
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -2,
-    K2 = -3,
-    isfreeofplayer(State, X, Y, Player).
-%x-3.y-1
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -3,
-    K2 = -1,
-    isfreeofplayer(State, X, Y, Player).
-%x-3.y-2
-movechk(State, [kngt1, X, Y ], Player):-
-    getLoc(State, [kngt1, CurrX, CurrY], Player),
-    bounded(X,Y),
-    K1 is X - CurrX,
-    K2 is Y - CurrY,
-    K1 = -3,
-    K2 = -2,
-    isfreeofplayer(State, X, Y, Player).
-/* checking knight ends */
 
 /*---------------------------------*/
 /** X1, X2, Y1, Y2 must all be instantiated*/
